@@ -38,6 +38,17 @@ class IRCORS (IRResource):
 
             self.allow_origin_string_match = [{'exact': origin} for origin in origins]
 
+        # 'regex_origins' is handled 'origins' but without splitting a string into a list
+        regex_origins = self.pop('regex_origins', None)
+
+        if regex_origins is not None:
+            if type(regex_origins) is not list:
+                regex_origins = [regex_origins]
+            regex_matchers = [{'safe_regex': regex_origin} for regex_origin in regex_origins]
+            if self.allow_origin_string_match is None:
+                self.allow_origin_string_match = []
+            self.allow_origin_string_match.extend(regex_matchers)
+
         for from_key, to_key in [ ( 'max_age', 'max_age' ),
                                   ( 'credentials', 'allow_credentials' ),
                                   ( 'methods', 'allow_methods' ),

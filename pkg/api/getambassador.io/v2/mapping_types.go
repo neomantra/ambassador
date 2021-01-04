@@ -241,6 +241,7 @@ type KeepAlive struct {
 
 type CORS struct {
 	Origins        StringOrStringList `json:"origins,omitempty"`
+	RegexOrigins   StringOrStringList `json:"regex_origins,omitempty"`
 	Methods        StringOrStringList `json:"methods,omitempty"`
 	Headers        StringOrStringList `json:"headers,omitempty"`
 	Credentials    bool               `json:"credentials,omitempty"`

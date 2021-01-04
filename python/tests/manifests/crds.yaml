@@ -760,6 +760,12 @@ spec:
                   oneOf:
                   - type: string
                   - type: array
+                regex_origins:
+                  items:
+                    type: string
+                  oneOf:
+                  - type: string
+                  - type: array
               type: object
             docs:
               description: DocsInfo provides some extra information about the docs for the Mapping (used by the Dev Portal)

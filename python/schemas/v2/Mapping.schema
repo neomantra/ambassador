@@ -57,6 +57,12 @@
                         { "type": "array", "items": { "type": "string" } }
                     ]
                 },
+                "regex_origins":  {
+                    "anyOf": [
+                        { "type": "string" },
+                        { "type": "array", "items": { "type": "string" } }
+                    ]
+                },
                 "methods": {
                     "anyOf": [
                         { "type": "string" },

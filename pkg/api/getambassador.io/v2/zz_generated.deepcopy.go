@@ -339,6 +339,11 @@ func (in *CORS) DeepCopyInto(out *CORS) {
 		*out = make(StringOrStringList, len(*in))
 		copy(*out, *in)
 	}
+	if in.RegexOrigins != nil {
+		in, out := &in.RegexOrigins, &out.RegexOrigins
+		*out = make(StringOrStringList, len(*in))
+		copy(*out, *in)
+	}
 	if in.Methods != nil {
 		in, out := &in.Methods, &out.Methods
 		*out = make(StringOrStringList, len(*in))

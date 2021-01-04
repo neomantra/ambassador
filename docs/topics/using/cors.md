@@ -34,6 +34,18 @@ The `cors` attribute enables the CORS filter. The following settings are support
       - http://bar.example
       ```
 
+- `regex_origins`: Specifies a list of allowed domain [Regular Expression (regex)](https://en.cppreference.com/w/cpp/regex/ecmascript) for the `Access-Control-Allow-Origin` header. If the `Origin` header matches the regex, it will be copied to the response's `Access-Control-Allow-Origin` header. Note that backslashes in double-quoted YAML strings are interpreted as an escape sequence; they must be expressed as `\\`.  The example below would allow `baz.foo.example` and `bar123.example`. Format can be either of:
+    - comma-separated list, e.g.
+      ```yaml
+      regex_origins: 'http://*.foo.example,http://bar\d+.example'
+      ```
+    - YAML array, e.g.
+      ```yaml
+      regex_origins:
+      - http://*.foo.example
+      - 'http://bar\d+.example'
+      ```
+
 - `methods`: if present, specifies a list of allowed methods for the `Access-Control-Allow-Methods` header. Format can be either of:
     - comma-separated list, e.g.
       ```yaml
